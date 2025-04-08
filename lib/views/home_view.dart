@@ -12,15 +12,20 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text('Weather App', style: TextStyle(color: Colors.white)),
-        actions: [IconButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          return SearchView();
-          }));
-        },
-         icon: Icon(Icons.search),
-         ),
-         ],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SearchView();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.search),
+          ),
+        ],
       ),
       body: WeatherInfoBody(),
     );
