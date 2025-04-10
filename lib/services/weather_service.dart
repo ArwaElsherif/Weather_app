@@ -5,7 +5,7 @@ class WeatherService {
   final Dio dio;
   final String baseUrl = 'http://api.weatherapi.com/v1';
   final String apiKey = 'aa33b7ccdd884756a6f122754241009';
-  WeatherService({required this.dio});
+  WeatherService( this.dio);
 
   Future<WeatherModel> getCurrentWeather({required String cityName}) async {
     //use try because if api dont responsiv correct
@@ -19,7 +19,6 @@ class WeatherService {
       final String errorMessage = e.response?.data['error']['message']?? 'oops there  was an error';
       throw Exception(errorMessage);
     }
-    
     //if there is exception but not dio exception
     catch(e){
       throw Exception('oops there  was an error');
