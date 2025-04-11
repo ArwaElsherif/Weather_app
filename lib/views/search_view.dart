@@ -23,7 +23,7 @@ class SearchView extends StatelessWidget {
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 30,horizontal: 8),
               labelText: 'Search',
-              suffixIcon: Icon(Icons.search),
+              suffixIcon: Icon(Icons.search,color: Colors.black,),
               hintText: 'Enter city name',
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.red ,width: 2 ),

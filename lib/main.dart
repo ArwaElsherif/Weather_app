@@ -48,7 +48,7 @@ MaterialColor getThemeColor(String? condition) {
       condition == 'Overcast' ||
       condition == 'Mist') {
     return Colors.orange;
-  } else if (condition == 'Heavy rain' ||
+  } else if (condition == 'Heavy rain ' ||
       condition == 'Patchy rain possible' ||
       condition == 'Patchy light drizzle' ||
       condition == 'Light drizzle' ||
