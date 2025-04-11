@@ -17,7 +17,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.blue,
         title: Text('Weather App', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
           return NoWeatherBody();
           }
           else if(state is WeatherLoadedState){
-            return WeatherInfoBody();
+            return WeatherInfoBody(weather: state.weatherModel,);
           }
           else{
             return Text('oops there was an errer');

@@ -9,7 +9,7 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.blue,
         title: Text('Search City', style: TextStyle(color: Colors.white)),
       ),
       body: Center(

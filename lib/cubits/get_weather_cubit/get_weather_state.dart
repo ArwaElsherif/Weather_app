@@ -2,11 +2,9 @@
 import 'package:weather_app/models/weather_model.dart';
 
 class WeatherState {
-  
 }
 
-class NoWeatherState extends WeatherState{
-  
+class NoWeatherState extends WeatherState{ 
 }
 
 class WeatherLoadedState extends WeatherState{
@@ -14,7 +12,6 @@ class WeatherLoadedState extends WeatherState{
 
   WeatherLoadedState({required this.weatherModel});
 }
-
 class WeatherFailureState extends WeatherState{
   final String error;
 
