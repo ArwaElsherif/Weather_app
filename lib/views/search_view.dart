@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_state.dart';
+import 'package:weather_app/main.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -9,8 +11,8 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Search City', style: TextStyle(color: Colors.white)),
+      backgroundColor: _getAppBarColor(context),
+        title: Text('Search City', style: TextStyle(color: Colors.black)),
       ),
       body: Center(
         child: Padding(
@@ -26,7 +28,7 @@ class SearchView extends StatelessWidget {
               suffixIcon: Icon(Icons.search,color: Colors.black,),
               hintText: 'Enter city name',
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red ,width: 2 ),
+                borderSide: BorderSide(color: Colors.black ,width: 2 ),
               ),
             ),
           ),
@@ -34,4 +36,12 @@ class SearchView extends StatelessWidget {
       ),
     );
   }
+}
+
+Color _getAppBarColor(BuildContext context) {
+  final state = context.read<GetWeatherCubit>().state;
+  if (state is WeatherLoadedState) {
+    return getThemeColor(state.weatherModel.weatherCondition);
+  }
+  return Colors.blue;
 }
