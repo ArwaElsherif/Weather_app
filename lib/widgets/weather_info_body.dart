@@ -6,9 +6,8 @@ import 'package:weather_app/main.dart';
 import 'package:weather_app/models/weather_model.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key, required this.weather});
+  const WeatherInfoBody({super.key});
 
-  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     WeatherModel weatherModel =

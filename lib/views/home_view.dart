@@ -16,7 +16,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
   Color _getAppBarColor(BuildContext context) {
     final state = context.watch<GetWeatherCubit>().state;
     if (state is WeatherLoadedState) {
@@ -51,8 +50,10 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, state) {
           if (state is NoWeatherState) {
             return NoWeatherBody();
+          } else if (state is WeatherLoadingState) {
+            return const Center(child: CircularProgressIndicator());
           } else if (state is WeatherLoadedState) {
-            return WeatherInfoBody(weather: state.weatherModel);
+            return WeatherInfoBody();
           } else {
             return ErrorView();
           }
@@ -61,4 +62,3 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
-

@@ -23,6 +23,5 @@ class WeatherService {
     catch(e){
       throw Exception('oops there  was an error');
     }
-
   }
 }

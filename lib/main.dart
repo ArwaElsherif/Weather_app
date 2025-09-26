@@ -5,7 +5,7 @@ import 'package:weather_app/cubits/get_weather_cubit/get_weather_state.dart';
 import 'package:weather_app/views/home_view.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(BlocProvider(create: (context) => GetWeatherCubit(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,26 +14,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetWeatherCubit(),
-      child: Builder(
-        builder:
-            (context) => BlocBuilder<GetWeatherCubit, WeatherState>(
-              builder: (context, state) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  theme: ThemeData(
-                    primarySwatch: getThemeColor(
-                      BlocProvider.of<GetWeatherCubit>(
-                        context,
-                      ).weatherModel?.weatherCondition,
-                    ),
-                  ),
-                  home: HomeView(),
-                );
-              },
+    return BlocBuilder<GetWeatherCubit, WeatherState>(
+      builder: (context, state) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: getThemeColor(
+              BlocProvider.of<GetWeatherCubit>(
+                context,
+              ).weatherModel?.weatherCondition,
             ),
-      ),
+          ),
+          home: HomeView(),
+        );
+      },
     );
   }
 }
@@ -41,8 +35,7 @@ class MyApp extends StatelessWidget {
 MaterialColor getThemeColor(String? condition) {
   if (condition == null) {
     return Colors.blue;
-  }
-  else if (condition == 'Sunny' ||
+  } else if (condition == 'Sunny' ||
       condition == 'Clear' ||
       condition == 'Partly cloudy' ||
       condition == 'Overcast' ||
